@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Options for Google Search™",
+  "version": "1.15",
+  "description": "Simplify search results. Hide specific sections and change the color of visited pages.",
+  "icons": {
+    "16": "16.png",
+    "48": "48.png",
+    "128": "128.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.google.com/search*"],
+    "run_at": "document_start",
+    "css": ["content.css"],
+    "js": ["content.js"]
+  }],
+  "options_ui": {"page": "options.html"},
+  "permissions": ["storage"]
+}
