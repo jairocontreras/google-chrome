@@ -1,5 +1,5 @@
 {
-  "name": "set_as_desktop_background",
+  "name": "set.as.desktop.background",
   "description": "description",
   "path": "host.py",
   "type": "stdio",

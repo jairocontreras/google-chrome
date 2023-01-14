@@ -1,37 +1,43 @@
-const array = ["color", "images", "people", "related", "snippets", "videos", "visited"];
+const options = ["color", "images", "people", "related", "snippet", "stories", "videos", "visited"];
+function hide(elem) {
+  elem.style.display = "none";
+}
 document.addEventListener("DOMContentLoaded", function() {
-  chrome.storage.sync.get(array, function(items) {
-    if (!document.URL.includes("search?tbm") && !document.URL.includes("&tbm")) {
-      var images, people, snippet, videos;
+  chrome.storage.sync.get(options, function(items) {
+    if (!document.querySelector(".XqFnDf")) {
+      var images, people, related, snippet, stories, videos;
       document.querySelectorAll(".ULSxyf").forEach(function(elem) {
-        const h2 = elem.querySelector("h2"),
-              h3 = elem.querySelector("h3");
-        if (h2) {
-          if (h2.textContent == "Featured snippet from the web")
-            snippet = elem;
-        }
-        else if (h3) {
-          if (h3.textContent.includes("Images for"))
+        const heading = elem.querySelector("[role=heading]");
+        if (elem.textContent.substring(0,29) == "Featured snippet from the web")
+          snippet = elem;
+        else if (heading) {
+          if (heading.textContent == "Top stories")
+            stories = elem;
+          else if (heading.textContent.substring(0,10) == "Images for")
             images = elem;
-          else if (h3.textContent == "Videos")
+          else if (heading.textContent == "Videos")
             videos = elem;
-          else if (h3.textContent == "People also ask")
+          else if (heading.textContent == "People also ask" && !people) // first iteration only
             people = elem;
+          else if (heading.textContent == "Related searches")
+            related = elem;
         }
       });
+      if (items["snippet"] && snippet)
+        hide(snippet);
+      if (items["stories"] && stories)
+        hide(stories);
       if (items["images"] && images)
-        images.style.display = "none";
-      if (items["people"] && people)
-        people.style.display = "none";
-      if (items["related"])
-        document.getElementById("botstuff").style.display = "none";
-      if (items["snippets"] && snippet)
-        snippet.style.display = "none";
+        hide(images);
       if (items["videos"] && videos)
-        videos.style.display = "none";
-      if (items["visited"])
-        window.document.styleSheets[0].insertRule("#rcnt a:visited {color:" + items["color"] + "}");
+        hide(videos);
+      if (items["people"] && people)
+        hide(people);
+      if (items["related"] && related)
+        hide(document.getElementById("bres"));
     }
+    if (items["visited"])
+      window.document.styleSheets[0].insertRule("#rcnt a:visited {color:" + items["color"] + "}");
     document.getElementById("rcnt").style.visibility = "visible";
   });
 });

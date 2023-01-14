@@ -1,12 +1,4 @@
-import ctypes
-import json
-import os
-import shutil
-import struct
-import sys
-import tempfile
-import urllib.error
-import urllib.request
+import ctypes, json, os, shutil, struct, sys, tempfile, urllib.error, urllib.request
 
 SPI_SETDESKWALLPAPER = 0x0014
 SPIF_UPDATEINIFILE = 0x01
@@ -32,3 +24,9 @@ for i in range(2):
     ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, filename, SPIF_UPDATEINIFILE | SPIF_SENDCHANGE)
     os.remove(filename)
     break
+
+# prevent error: native host has exited
+message = ""
+sys.stdout.buffer.write(struct.pack("i", len(message)))
+sys.stdout.write(message)
+sys.stdout.flush()
