@@ -1,27 +1,72 @@
 <title>Set as desktop background</title>
-<link href=style.css rel=stylesheet>
 <style>
+body {
+  font-size: 14;
+}
 code {
   font-weight: bold;
+}
+main, .button {
+  border-width: 1px;
+}
+.button {
+  border-bottom-color: #999 !important;
+  border-radius: 14px;
+  border-style: solid;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.05), inset 0 0 5px rgba(255,255,255,.5);
+  color: black;
+  font-size: 15;
+  letter-spacing: .5;
+  padding-bottom: 10;
+  padding-top: 10;
+  text-decoration: none;
+}
+.hide {
+  height: 0;
+}
+.margin-block {
+  margin-block-start: 0;
+}
+.margin-top {
+  margin-top: 25;
+}
+.notes {
+  color: #004c99;
+  font-size: 16;
+}
+.show {
+  height: var(--show);
+}
+#details::before {
+  content: url(expand.png);
+  margin-right: 10;
+}
+#details:hover {
+  color: #0082e0;
 }
 #python:hover {
   background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%) !important;
 }
 </style>
-<main>
-  <div class=margin id=center>
-    <p id=heading>Almost there...
-    <p class=margin>Please install required software
-    <div style="display: flex; justify-content: center">
+<main style="border-color: rgba(193,202,214,.3); border-style: outset; border-radius: 20px; box-shadow: 0 4px 12px -5px rgba(62,65,90,.1); margin-left: auto; margin-right: auto; margin-top: 80; padding: 25 110; width: 475">
+  <div style="text-align: center">
+    <p class=margin-block style="color: #1c1a16; font-size: 24">Almost there...
+    <p>Please install required software
+    <div class=margin-top style="display: flex; justify-content: center">
       <a class=button href=https://www.python.org id=python target=_blank style="background: linear-gradient(#d9d9d9 10%, #ccc 90%); border-color: #caccce; padding-left: 20; padding-right: 20">Python</a>
       <img src=plus.png style="margin-left: 5; margin-right: 5; object-fit: contain">
-      <a class=button href=https://bit.ly/3QI0oST id=script>Script</a>
+      <a class=button href=https://bit.ly/3QI0oST style="background: linear-gradient(white, #ffeb99); border-color: #efe2a8; padding-left: 25; padding-right: 25">Script</a>
     </div>
   </div>
-  <p class=notes>Instructions
+  <p class="margin-top notes">Instructions
+  <p>This extension is compatible with Windows
   <p>When installing Python, select <b>Add to PATH</b>
-  <p>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
-  <p>To use the extension, right click an image and click the relevant entry
-  <p class=notes style="margin-top: 30">Uninstallation
-  <p style="line-height: 1.5; margin-block-start: -4px">To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
+  <p>To use, access the context menu of an image
+  <p class="margin-top notes"><span id=details style="cursor: pointer">Details</span>
+  <div class=hide style="overflow: hidden; transition: height .3s ease-out">
+    <p class=margin-block>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
+    <p>To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
+    <p>If the extension stops working, make sure you have the latest version of the script installed
+  </div>
 </main>
+<script src=details.js></script>
