@@ -14,7 +14,7 @@ function compare() {
     update_current(); // allow synchronous functions to execute first
     if (JSON.stringify(current) != JSON.stringify(saved) && color.validity.valid) {
       save.disabled = false;
-      span.classList.add("hidden");
+      span.classList.add("hide");
     }
     else
       save.disabled = true;
@@ -90,5 +90,5 @@ save.addEventListener("click", function() {
   update_current();
   item_color = current["color"];
   chrome.storage.sync.set(current);
-  span.classList.remove("hidden");
+  span.classList.remove("hide");
 });

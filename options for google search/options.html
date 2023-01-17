@@ -1,35 +1,33 @@
 <!doctype html>
-<link rel=stylesheet href=https://fonts.googleapis.com/css?family=Roboto>
 <style>
 body {
-  background-color: #f8f9fa;
-  margin-bottom: 18px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 0;
-}
-button:focus, input:not([type]):focus, input[type=checkbox]:focus {
-  border-color: #a7a7a7 !important;
+  background: #f8f9fa;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 input {
-  margin-right: 6px !important;
+  margin-right: 6px;
 }
 input[type=checkbox] {
   vertical-align: -2px;
+}
+input:not([type]):focus {
+  outline: 0;
 }
 label {
   display: table;
   margin-bottom: 10px;
 }
-p {
-  margin-block-end: 6px;
-}
-.hidden {
+.hide {
   opacity: 0;
   visibility: hidden;
 }
+.margin {
+  margin-top: 20px;
+}
 </style>
-<span class=hidden style="color: green; position: absolute; right: 12px; top: 8px; transition: opacity 0.5s linear, visibility 0.5s">Saved!</span>
+<span class=hide style="color: green; position: absolute; right: 30px; top: 12px; transition: opacity 0.5s linear, visibility 0.5s">Saved!</span>
 <p>Hide</p>
 <label><input id=snippet type=checkbox>Featured snippet</label>
 <label><input id=stories type=checkbox>Top stories</label>
@@ -37,11 +35,11 @@ p {
 <label><input id=videos type=checkbox>Videos</label>
 <label><input id=people type=checkbox>People also ask</label>
 <label><input id=related type=checkbox>Related searches</label>
-<p>Change visited link color</p>
+<p class=margin>Change visited link color</p>
 <label><input id=visited type=checkbox>Enable</label>
-<div style="margin-bottom: 15px; visibility: hidden">
-  <input id=color value=#609 style="vertical-align: -1px">
-  <a style="color: #609; font: 18px roboto; text-decoration: none; vertical-align: middle">Example</a>
+<div style="display: flex; visibility: hidden">
+  <input id=color value=#609 style="padding: 4px; width: 120px">
+  <a style="color: #609; font-size: 20px; margin-top: -1px">Example</a>
 </div>
-<button disabled style="display: block; margin-left: auto; margin-right: auto">Save</button>
+<button class=margin disabled style="display: block; margin-left: auto; margin-right: auto">Save</button>
 <script src=options.js></script>
