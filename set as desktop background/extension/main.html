@@ -1,22 +1,27 @@
 <title>Set as desktop background</title>
 <link href=style.css rel=stylesheet>
-<script src=download.js></script>
 <style>
+code {
+  font-weight: bold;
+}
 #python:hover {
   background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%) !important;
 }
 </style>
 <main>
-  <div class=center>
-    <p class=heading>Almost there...
-    <p class=message>Please install required software
-    <div style="display: flex; justify-content: center; margin-bottom: 25">
-      <a class=button href=https://www.python.org id=python target=_blank style="appearance: button; background: linear-gradient(#d9d9d9 10%, #ccc 90%); border: 1px solid #caccce; box-shadow: 1px 1px 1px rgba(0,0,0,.05), inset 0 0 5px rgba(255,255,255,0.5); color: black; padding: 10 20; text-decoration: none">Python</a>
+  <div class=margin id=center>
+    <p id=heading>Almost there...
+    <p class=margin>Please install required software
+    <div style="display: flex; justify-content: center">
+      <a class=button href=https://www.python.org id=python target=_blank style="background: linear-gradient(#d9d9d9 10%, #ccc 90%); border-color: #caccce; padding-left: 20; padding-right: 20">Python</a>
       <img src=plus.png style="margin-left: 5; margin-right: 5; object-fit: contain">
-      <button id=script>Script</button>
+      <a class=button href=https://bit.ly/3QI0oST id=script>Script</a>
     </div>
   </div>
   <p class=notes>Instructions
   <p>When installing Python, select <b>Add to PATH</b>
   <p>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
+  <p>To use the extension, right click an image and click the relevant entry
+  <p class=notes style="margin-top: 30">Uninstallation
+  <p style="line-height: 1.5; margin-block-start: -4px">To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
 </main>

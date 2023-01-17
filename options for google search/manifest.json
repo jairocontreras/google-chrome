@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Options for Google Search™",
-  "version": "1.17",
+  "version": "1.16",
   "description": "Make search results look cleaner",
   "icons": {
     "16": "16.png",
