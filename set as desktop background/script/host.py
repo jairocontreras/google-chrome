@@ -26,7 +26,7 @@ for i in range(2):
     break
 
 # prevent error: native host has exited
-message = ""
-sys.stdout.buffer.write(struct.pack("i", len(message)))
-sys.stdout.write(message)
+response = ""
+sys.stdout.buffer.write(struct.pack("i", len(response)))
+sys.stdout.write(response)
 sys.stdout.flush()

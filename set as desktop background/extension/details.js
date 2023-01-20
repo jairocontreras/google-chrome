@@ -1,6 +1,5 @@
-document.getElementById("details").addEventListener("click", function(e) {
-  const div = e.target.parentElement.nextElementSibling;
-  div.style.setProperty("--show", div.scrollHeight + "px");
-  div.classList.toggle("show");
-  div.classList.toggle("hide");
+const content = document.getElementById("content");
+document.getElementById("details").addEventListener("click", function() {
+  content.style.height = (content.offsetHeight == 0 ? content.scrollHeight : 0);
+  this.classList.toggle("collapse");
 });

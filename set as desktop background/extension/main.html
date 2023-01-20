@@ -6,13 +6,15 @@ body {
 code {
   font-weight: bold;
 }
-main, .button {
-  border-width: 1px;
+main, .button, #plus {
+  border-width: 1;
+}
+.button, #plus {
+  border-style: solid;
 }
 .button {
   border-bottom-color: #999 !important;
   border-radius: 14px;
-  border-style: solid;
   box-shadow: 1px 1px 1px rgba(0,0,0,.05), inset 0 0 5px rgba(255,255,255,.5);
   color: black;
   font-size: 15;
@@ -21,8 +23,8 @@ main, .button {
   padding-top: 10;
   text-decoration: none;
 }
-.hide {
-  height: 0;
+.collapse::before {
+  transform: rotate(90deg);
 }
 .margin-block {
   margin-block-start: 0;
@@ -34,15 +36,37 @@ main, .button {
   color: #004c99;
   font-size: 16;
 }
-.show {
-  height: var(--show);
+#content, #details::before {
+  transition-duration: .5s;
 }
 #details::before {
-  content: url(expand.png);
+  color: #ababab;
+  content: "\25b7";
+  display: inline-block;
+  font-size: 12;
   margin-right: 10;
+  transition-property: transform;
+  vertical-align: 1;
 }
 #details:hover {
   color: #0082e0;
+}
+#plus::before, #plus::after {
+  background: black;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#plus::before {
+  margin: 2 auto;
+  width: 1;
+}
+#plus::after {
+  height: 1;
+  margin: auto 2;
 }
 #python:hover {
   background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%) !important;
@@ -52,9 +76,9 @@ main, .button {
   <div style="text-align: center">
     <p class=margin-block style="color: #1c1a16; font-size: 24">Almost there...
     <p>Please install required software
-    <div class=margin-top style="display: flex; justify-content: center">
+    <div class=margin-top style="align-items: center; display: flex; justify-content: center">
       <a class=button href=https://www.python.org id=python target=_blank style="background: linear-gradient(#d9d9d9 10%, #ccc 90%); border-color: #caccce; padding-left: 20; padding-right: 20">Python</a>
-      <img src=plus.png style="margin-left: 5; margin-right: 5; object-fit: contain">
+      <span id=plus style="border-radius: 100%; height: 13; margin-left: 8; margin-right: 8; position: relative; width: 13"></span>
       <a class=button href=https://bit.ly/3QI0oST style="background: linear-gradient(white, #ffeb99); border-color: #efe2a8; padding-left: 25; padding-right: 25">Script</a>
     </div>
   </div>
@@ -63,7 +87,7 @@ main, .button {
   <p>When installing Python, select <b>Add to PATH</b>
   <p>To use, access the context menu of an image
   <p class="margin-top notes"><span id=details style="cursor: pointer">Details</span>
-  <div class=hide style="overflow: hidden; transition: height .3s ease-out">
+  <div id=content style="height: 0; overflow: hidden; transition-property: height; transition-timing: ease-out">
     <p class=margin-block>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
     <p>To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
     <p>If the extension stops working, make sure you have the latest version of the script installed
