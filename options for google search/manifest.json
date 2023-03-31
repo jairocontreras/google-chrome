@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Options for Google Search™",
-  "version": "1.16",
-  "description": "Make search results look cleaner",
+  "version": "1.17",
+  "action": {"default_popup": "popup.html"},
+  "description": "Change the color of visited links",
   "icons": {
     "16": "16.png",
     "48": "48.png"
@@ -10,9 +11,7 @@
   "content_scripts": [{
     "matches": ["https://www.google.com/search*"],
     "run_at": "document_start",
-    "css": ["content.css"],
     "js": ["content.js"]
   }],
-  "options_ui": {"page": "options.html"},
   "permissions": ["storage"]
 }

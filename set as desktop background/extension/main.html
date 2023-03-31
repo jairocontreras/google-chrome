@@ -6,6 +6,9 @@ body {
 code {
   font-weight: bold;
 }
+div p:first-of-type {
+  margin-block-start: 0;
+}
 main, .button, #plus {
   border-width: 1;
 }
@@ -15,19 +18,16 @@ main, .button, #plus {
 .button {
   border-bottom-color: #999 !important;
   border-radius: 14px;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.05), inset 0 0 5px rgba(255,255,255,.5);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05), inset 0 0 5px rgba(255, 255, 255, 0.5);
   color: black;
   font-size: 15;
-  letter-spacing: .5;
+  letter-spacing: 0.5;
   padding-bottom: 10;
   padding-top: 10;
   text-decoration: none;
 }
 .collapse::before {
   transform: rotate(90deg);
-}
-.margin-block {
-  margin-block-start: 0;
 }
 .margin-top {
   margin-top: 25;
@@ -37,7 +37,7 @@ main, .button, #plus {
   font-size: 16;
 }
 #content, #details::before {
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 #details::before {
   color: #ababab;
@@ -72,9 +72,9 @@ main, .button, #plus {
   background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%) !important;
 }
 </style>
-<main style="border-color: rgba(193,202,214,.3); border-style: outset; border-radius: 20px; box-shadow: 0 4px 12px -5px rgba(62,65,90,.1); margin-left: auto; margin-right: auto; margin-top: 80; padding: 25 110; width: 475">
+<main style="border-color: rgba(193, 202, 214, 0.3); border-style: outset; border-radius: 20px; box-shadow: 0 4px 12px -5px rgba(62, 65, 90, 0.1); margin-left: auto; margin-right: auto; margin-top: 80; padding: 25 110; width: 475">
   <div style="text-align: center">
-    <p class=margin-block style="color: #1c1a16; font-size: 24">Almost there...
+    <p style="color: #1c1a16; font-size: 24">Almost there...
     <p>Please install required software
     <div class=margin-top style="align-items: center; display: flex; justify-content: center">
       <a class=button href=https://www.python.org id=python target=_blank style="background: linear-gradient(#d9d9d9 10%, #ccc 90%); border-color: #caccce; padding-left: 20; padding-right: 20">Python</a>
@@ -88,7 +88,7 @@ main, .button, #plus {
   <p>To use, access the context menu of an image
   <p class="margin-top notes"><span id=details style="cursor: pointer">Details</span>
   <div id=content style="height: 0; overflow: hidden; transition-property: height; transition-timing: ease-out">
-    <p class=margin-block>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
+    <p>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
     <p>To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
     <p>If the extension stops working, make sure you have the latest version of the script installed
   </div>
