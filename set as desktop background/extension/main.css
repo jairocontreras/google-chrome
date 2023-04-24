@@ -1,0 +1,107 @@
+a {
+  text-decoration: none;
+}
+a:not(.button):hover {
+  text-decoration: underline;
+}
+a:not(.button)[target=_blank]::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin-left: 3px;
+}
+body {
+  font-size: 14px;
+}
+div p:first-of-type {
+  margin-block-start: 0;
+}
+.button {
+  border-bottom-color: #999 !important;
+  border-radius: 14px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05), inset 0 0 5px rgba(255, 255, 255, 0.5);
+  color: black;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.collapse::before {
+  transform: rotate(90deg);
+}
+.font {
+  font-style: italic;
+  font-weight: 500;
+}
+.notes {
+  color: #004c99;
+  font-size: 16px;
+}
+#details:hover {
+  color: #0082e0;
+}
+#details::before, #hidden {
+  transition-duration: 0.5s;
+}
+#details::before {
+  color: #ababab;
+  content: "\25b7";
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 10px;
+  transition-property: transform;
+  vertical-align: 1px;
+}
+#python:hover {
+  background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%);
+}
+#script:hover {
+  background: linear-gradient(white, #ffe166);
+}
+
+/* inline */
+
+main {
+  border: 1px outset rgba(193, 202, 214, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px -5px rgba(62, 65, 90, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  padding: 25px 110px;
+  width: 475px;
+}
+#hidden {
+  height: 0;
+  overflow: hidden;
+  transition-property: height;
+  transition-timing-function: ease-out;
+}
+#plus {
+  background: url(plus.png);
+  height: 15px;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 15px;
+}
+#python {
+  background: linear-gradient(#d9d9d9 10%, #ccc 90%);
+  border-color: #caccce;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#script {
+  background: linear-gradient(white, #ffeb99);
+  border-color: #efe2a8;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#software {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#title {
+  color: #1c1a16;
+  font-size: 24px;
+}

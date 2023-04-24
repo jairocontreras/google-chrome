@@ -1,96 +1,25 @@
+<!doctype html>
 <title>Set as desktop background</title>
-<style>
-body {
-  font-size: 14;
-}
-code {
-  font-weight: bold;
-}
-div p:first-of-type {
-  margin-block-start: 0;
-}
-main, .button, #plus {
-  border-width: 1;
-}
-.button, #plus {
-  border-style: solid;
-}
-.button {
-  border-bottom-color: #999 !important;
-  border-radius: 14px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05), inset 0 0 5px rgba(255, 255, 255, 0.5);
-  color: black;
-  font-size: 15;
-  letter-spacing: 0.5;
-  padding-bottom: 10;
-  padding-top: 10;
-  text-decoration: none;
-}
-.collapse::before {
-  transform: rotate(90deg);
-}
-.margin-top {
-  margin-top: 25;
-}
-.notes {
-  color: #004c99;
-  font-size: 16;
-}
-#content, #details::before {
-  transition-duration: 0.5s;
-}
-#details::before {
-  color: #ababab;
-  content: "\25b7";
-  display: inline-block;
-  font-size: 12;
-  margin-right: 10;
-  transition-property: transform;
-  vertical-align: 1;
-}
-#details:hover {
-  color: #0082e0;
-}
-#plus::before, #plus::after {
-  background: black;
-  bottom: 0;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-#plus::before {
-  margin: 2 auto;
-  width: 1;
-}
-#plus::after {
-  height: 1;
-  margin: auto 2;
-}
-#python:hover {
-  background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%) !important;
-}
-</style>
-<main style="border-color: rgba(193, 202, 214, 0.3); border-style: outset; border-radius: 20px; box-shadow: 0 4px 12px -5px rgba(62, 65, 90, 0.1); margin-left: auto; margin-right: auto; margin-top: 80; padding: 25 110; width: 475">
+<link href=main.css rel=stylesheet>
+<script src=main.js></script>
+<main>
   <div style="text-align: center">
-    <p style="color: #1c1a16; font-size: 24">Almost there...
+    <p id=title>Almost there...
     <p>Please install required software
-    <div class=margin-top style="align-items: center; display: flex; justify-content: center">
-      <a class=button href=https://www.python.org id=python target=_blank style="background: linear-gradient(#d9d9d9 10%, #ccc 90%); border-color: #caccce; padding-left: 20; padding-right: 20">Python</a>
-      <span id=plus style="border-radius: 100%; height: 13; margin-left: 8; margin-right: 8; position: relative; width: 13"></span>
-      <a class=button href=https://bit.ly/3QI0oST style="background: linear-gradient(white, #ffeb99); border-color: #efe2a8; padding-left: 25; padding-right: 25">Script</a>
+    <div id=software style="margin-top: 25px">
+      <a class=button href=https://www.python.org id=python target=_blank>Python</a>
+      <div id=plus></div>
+      <a class=button href=https://bit.ly/3QI0oST id=script>Script</a>
     </div>
   </div>
-  <p class="margin-top notes">Instructions
+  <p class=notes style="margin-top: 25px">Instructions
   <p>This extension is compatible with Windows
   <p>When installing Python, select <b>Add to PATH</b>
-  <p>To use, access the context menu of an image
-  <p class="margin-top notes"><span id=details style="cursor: pointer">Details</span>
-  <div id=content style="height: 0; overflow: hidden; transition-property: height; transition-timing: ease-out">
-    <p>If you wish to install script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
-    <p>To uninstall script, go to <code>%AppData%\&#60;folder&#62;</code>, run <code>uninstall.bat</code>, and delete the folder itself
+  <p>To use, access the context menu of any image
+  <p class=notes style="margin-top: 25px"><span id=details style="cursor: pointer">Details</span>
+  <div id=hidden>
+    <p>If you wish to install the script manually, <a href=https://bit.ly/3w03053 target=_blank>click here</a> to view source
+    <p>To uninstall, go to <span class=font>%AppData%\Set as desktop background</span>, run <span class=font>uninstall.bat</span>, and delete the folder
     <p>If the extension stops working, make sure you have the latest version of the script installed
   </div>
 </main>
-<script src=details.js></script>
