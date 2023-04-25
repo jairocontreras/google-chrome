@@ -1,6 +1,6 @@
 {
-  "name": "set.as.desktop.background",
-  "description": "description",
+  "name": "set_as_desktop_background",
+  "description": "required",
   "path": "host.py",
   "type": "stdio",
   "allowed_origins": ["chrome-extension://kpnohlcoegedfpikkadcoljdjnijbelp/"]
