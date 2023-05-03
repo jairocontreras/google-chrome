@@ -22,6 +22,7 @@ for i in range(2):
         response = "Cannot fetch file using web scraper"
     else:
       response = error
+      break
   else:
     response = ""
     break
