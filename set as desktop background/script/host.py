@@ -10,17 +10,19 @@ for i in range(2):
   try:
     with urllib.request.urlopen(url) as response, tempfile.NamedTemporaryFile(delete=False) as temp:
       shutil.copyfileobj(response, temp)
-  except urllib.error.HTTPError as e:
+    # SPI_SETDESKWALLPAPER, SPIF_UPDATEINIFILE, SPIF_SENDCHANGE
+    ctypes.windll.user32.SystemParametersInfoW(0x0014, 0, temp.name, 0x01 | 0x02)
+    os.remove(temp.name)
+  except Exception as e:
     error = str(e)
     if error == "HTTP Error 403: Forbidden":
       if i == 0:
         url = urllib.request.Request(url, headers={"user-agent": "mozilla/5.0"})
       else:
-        response = error
+        response = "Cannot fetch file using web scraper"
+    else:
+      response = error
   else:
-    # SPI_SETDESKWALLPAPER, SPIF_UPDATEINIFILE, SPIF_SENDCHANGE
-    ctypes.windll.user32.SystemParametersInfoW(0x0014, 0, temp.name, 0x01 | 0x02)
-    os.remove(temp.name)
     response = ""
     break
 

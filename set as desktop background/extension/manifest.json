@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Set as desktop background",
-  "version": "1.27",
+  "version": "1.28",
+  "action": {"default_popup": "popup.html"},
   "description": "Choose any image on the web as your desktop wallpaper directly from your browser",
   "icons": {
     "16": "16.png",
@@ -9,5 +10,5 @@
   },
   "background": {"service_worker": "background.js"},
   "options_page": "main.html",
-  "permissions": ["contextMenus", "nativeMessaging", "notifications", "tabs"]
+  "permissions": ["contextMenus", "downloads", "nativeMessaging", "notifications", "storage", "tabs"]
 }
