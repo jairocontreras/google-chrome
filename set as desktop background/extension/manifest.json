@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Set as desktop background",
-  "version": "1.26",
+  "version": "1.27",
   "description": "Choose any image on the web as your desktop wallpaper directly from your browser",
   "icons": {
     "16": "16.png",
@@ -9,5 +9,5 @@
   },
   "background": {"service_worker": "background.js"},
   "options_page": "main.html",
-  "permissions": ["contextMenus", "nativeMessaging", "tabs"]
+  "permissions": ["contextMenus", "nativeMessaging", "notifications", "tabs"]
 }
