@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   if (window.navigator.onLine) {
     chrome.storage.local.get(["url"]).then(result => {

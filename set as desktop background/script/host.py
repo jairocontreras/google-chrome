@@ -1,6 +1,6 @@
 import ctypes, json, os, shutil, struct, sys, tempfile, urllib.request
 
-def do(url):
+def set_wallpaper(url):
   global response
   try:
     with urllib.request.urlopen(url) as response, tempfile.NamedTemporaryFile(delete=False) as temp:
@@ -24,7 +24,7 @@ text_length_bytes = sys.stdin.buffer.read(4)
 text_length = struct.unpack("i", text_length_bytes)[0]
 text = sys.stdin.buffer.read(text_length).decode()
 message = json.loads(text)
-do(message["url"])
+set_wallpaper(message["url"])
 text = json.dumps(response)
 sys.stdout.buffer.write(struct.pack("i", len(text)))
 sys.stdout.write(text)
