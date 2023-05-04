@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Set as desktop background",
-  "version": "1.28",
+  "version": "1.29",
   "action": {"default_popup": "popup.html"},
   "description": "Choose any image on the web as your desktop wallpaper directly from your browser",
   "icons": {

@@ -1,22 +1,20 @@
 window.addEventListener("load", () => {
-  const span = document.querySelector("span");
-  chrome.storage.local.get(["url"]).then(result => {
-    const url = result["url"];
-    if (url) {
-      span.textContent = "Saving...";
-      chrome.downloads.download({url: url}).then(id => {
-        console.log(id);
-        if (id) {
-          if (window.navigator.onLine)
-            span.textContent += " Success!";
+  const body = document.querySelector("body");
+  if (window.navigator.onLine) {
+    chrome.storage.local.get(["url"]).then(result => {
+      const url = result["url"];
+      if (url) {
+        chrome.downloads.download({url: url}).then(id => {
+          if (id)
+            body.textContent = "Saved!";
           else
-            span.textContent += " Offline";
-        }
-        else
-          span.textContent += " Failed";
-      });
-    }
-    else
-      span.textContent = "Save most recent wallpaper to your computer...\nYou must use the extension first from the context menu";
-  });
+            body.textContent = "Failed";
+        });
+      }
+      else
+        body.textContent = "Save most recent wallpaper to your computer:\nYou must use the extension first from the context menu";
+    });
+  }
+  else
+    body.textContent = "No internet";
 });
