@@ -44,7 +44,7 @@ main {
   width: 400px;
 }
 #plus {
-  background: url(plus.png);
+  background: url(/images/plus.png);
   height: 15px;
   margin-left: 10px;
   margin-right: 10px;
