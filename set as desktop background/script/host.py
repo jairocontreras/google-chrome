@@ -12,7 +12,7 @@ def set_wallpaper(url):
     error = str(e)
     if error == "HTTP Error 403: Forbidden":
       if isinstance(url, str):
-        do(urllib.request.Request(url, headers={"user-agent": "mozilla/5.0"}))
+        set_wallpaper(urllib.request.Request(url, headers={"user-agent": "mozilla/5.0"}))
       else:
         response = "Cannot fetch file using web scraper"
     else:
