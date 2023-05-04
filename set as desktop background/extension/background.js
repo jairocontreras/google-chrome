@@ -41,7 +41,7 @@ function error(message) {
   chrome.notifications.create({
     iconUrl: "error.png",
     message: message,
-    title: "Error",
+    title: "Something went wrong",
     type: "basic"
   });
 }
@@ -50,7 +50,7 @@ function reminder(id, action) {
   chrome.notifications.create(id, {
     buttons: [{title: "Download"}, {title: action}],
     iconUrl: "60.png",
-    message: "Feature update available for the script",
+    message: "Script update available",
     requireInteraction: true,
     title: "Set as desktop background",
     type: "basic"
