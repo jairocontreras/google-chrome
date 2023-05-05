@@ -23,8 +23,13 @@ chrome.contextMenus.onClicked.addListener(info => {
     const lasterror = chrome.runtime.lastError;
     if (lasterror)
       error(lasterror.message.slice(0, -1));
-    else if (response)
+    else if (response) {
+      if (response == "<urlopen error [Errno 11001] getaddrinfo failed>")
+        response = "No internet connection";
+      else if (response == "HTTP Error 403: Forbidden")
+        response = "Cannot fetch file using web scraper";
       error(response);
+    }
     else
       chrome.storage.local.set(message);
   });

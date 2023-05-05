@@ -16,5 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   else
-    body.textContent = "No internet";
+    body.textContent = "No internet connection";
 });
