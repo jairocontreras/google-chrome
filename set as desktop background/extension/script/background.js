@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(details => {
   if (details.reason == "install")
     chrome.tabs.create({url: "main.html"});
-  else if (details.reason == "update" && details.previousVersion < 1.28)
+  else if (details.reason == "update")
     reminder("true", "Remind me later");
   chrome.contextMenus.create({
     "id": "id",
@@ -32,14 +32,14 @@ chrome.contextMenus.onClicked.addListener(info => {
 
 chrome.notifications.onButtonClicked.addListener((id, index) => {
   if (index == 0)
-    chrome.downloads.download({url: "https://bit.ly/3AM8By8"});
+    chrome.downloads.download({url: "https://bit.ly/3NJlMrh"});
   else
     chrome.storage.local.set({reminder: (id === "true")});
 });
 
 function error(message) {
   chrome.notifications.create({
-    iconUrl: "error.png",
+    iconUrl: "/images/error.png",
     message: message,
     title: "Something went wrong",
     type: "basic"
@@ -49,7 +49,7 @@ function error(message) {
 function reminder(id, action) {
   chrome.notifications.create(id, {
     buttons: [{title: "Download"}, {title: action}],
-    iconUrl: "60.png",
+    iconUrl: "/images/60.png",
     message: "Script update available",
     requireInteraction: true,
     title: "Set as desktop background",
