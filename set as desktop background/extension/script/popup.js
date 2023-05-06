@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       else
-        body.textContent = "Save most recent wallpaper to your computer:\nYou must use the extension first from the context menu";
+        body.textContent = "Save most recent wallpaper";
     });
   }
   else
