@@ -20,18 +20,18 @@ var dest
 var path
 var setup
 var size
-var size_req
+var size_src
 var unit
 
 page custom setup leave
 page instfiles
 
 function setup
-  strcpy $size $size_req
+  strcpy $size $size_src
   strcpy $unit KB
   call size
-  system::int64op $size_req * 1024 ; convert to bytes
-  pop $size_req
+  system::int64op $size_src * 1024 ; convert to bytes
+  pop $size_src
   getdlgitem $setup $hwndparent 1
   nsdialogs::create 1018
   ${nsd_createlabel} 0 0 100% 8u "Install mode"
@@ -131,7 +131,7 @@ function validate
       strcpy $unit B
       call size
       strcpy $space "Space available: $size $unit"
-      system::int64op $size_req > $2
+      system::int64op $size_src > $2
       pop $0
       intcmp $0 1 low
       ${nsd_settext} $free $space
@@ -200,5 +200,5 @@ sectionend
 function .oninit
   var /global app
   strcpy $app "${app}"
-  sectiongetsize ${section} $size_req ; .oninit must be placed after section
+  sectiongetsize ${section} $size_src ; .oninit must be placed after section
 functionend
