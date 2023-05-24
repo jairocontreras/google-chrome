@@ -27,11 +27,11 @@ page custom setup leave
 page instfiles
 
 function setup
-  strcpy $size $size_src
-  strcpy $unit KB
-  call size
   system::int64op $size_src * 1024 ; convert to bytes
   pop $size_src
+  strcpy $size $size_src
+  strcpy $unit B
+  call size
   getdlgitem $setup $hwndparent 1
   nsdialogs::create 1018
   ${nsd_createlabel} 0 0 100% 8u "Install mode"
@@ -94,10 +94,9 @@ function validate
   var /global len
   var /global out
   var /global pos
-  var /global space
   ${nsd_gettext} $dest $1
   strcpy $0 $1 1 ; root
-  ${ifthen} $0 == \ ${|} goto bad ${|}
+  strcmp $0 \ bad
   ${strcontains} $0 \\ $1
   strcmp $0 \\ bad
   strlen $len $1
@@ -130,12 +129,12 @@ function validate
       strcpy $size $2
       strcpy $unit B
       call size
-      strcpy $space "Space available: $size $unit"
-      system::int64op $size_src > $2
-      pop $0
-      intcmp $0 1 low
-      ${nsd_settext} $free $space
-      enablewindow $setup 1
+      ${nsd_settext} $free "Space available: $size $unit"
+      ${if} $2 u> $size_src
+        enablewindow $setup 1
+      ${else}
+        enablewindow $setup 0
+      ${endif}
     ${else}
       traverse:
         intop $0 $0 - 1
@@ -150,10 +149,6 @@ function validate
         ${nsd_settext} $free "Space available:"
         enablewindow $setup 0
     ${endif}
-  return
-  low:
-    ${nsd_settext} $free "$space (insufficient)"
-    enablewindow $setup 0
 functionend
 
 function browse
@@ -182,7 +177,6 @@ section "" section
   var /global val
   setoutpath $instdir
   file source\*
-  setregview 64
   strcpy $val $instdir\manifest.json
   ${if} $mode == 0
     push hklm
@@ -193,6 +187,7 @@ section "" section
     call advreplaceinfile
     writeregstr hkcu ${key} "" $val
   ${else}
+    setregview 64
     writeregstr hklm ${key} "" $val
   ${endif}
 sectionend
