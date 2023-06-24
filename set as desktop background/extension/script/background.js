@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(details => {
   if (details.reason == "install")
     chrome.tabs.create({url: "main.html"});
-  else if (details.reason == "update")
+  else if (details.reason == "update" && details.previousVersion < 1.33)
     reminder("true", "Remind me later");
   chrome.contextMenus.create({
     "id": "id",
