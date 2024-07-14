@@ -1,8 +1,8 @@
 chrome.runtime.onInstalled.addListener(details => {
-  if (details.reason == "install")
+  if (details.reason === "install")
     chrome.tabs.create({url: "main.html"});
-  else if (details.reason == "update" && details.previousVersion < 1.33)
-    reminder("true", "Remind me later");
+  else if ((details.reason === "update") && (details.previousVersion < 1))
+    reminder("id", "Remind me later");
   chrome.contextMenus.create({
     "id": "id",
     "title": "Set as desktop background",
@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(details => {
 chrome.runtime.onStartup.addListener(() => {
   chrome.storage.local.get(["reminder"]).then(result => {
     if (result["reminder"])
-      reminder("false", "Turn off reminder");
+      reminder(null, "Turn off reminder");
   });
 });
 
@@ -24,9 +24,9 @@ chrome.contextMenus.onClicked.addListener(info => {
     if (lasterror)
       error(lasterror.message.slice(0, -1));
     else if (response) {
-      if (response == "<urlopen error [Errno 11001] getaddrinfo failed>")
+      if (response === "<urlopen error [Errno 11001] getaddrinfo failed>")
         response = "No internet connection";
-      else if (response == "HTTP Error 403: Forbidden")
+      else if (response === "HTTP Error 403: Forbidden")
         response = "Cannot fetch file using web scraper";
       error(response);
     }
@@ -36,10 +36,11 @@ chrome.contextMenus.onClicked.addListener(info => {
 });
 
 chrome.notifications.onButtonClicked.addListener((id, index) => {
-  if (index == 0)
+  if (index === 0)
     chrome.downloads.download({url: "https://bit.ly/3pXxt3K"});
   else
-    chrome.storage.local.set({reminder: (id === "true")});
+    chrome.storage.local.set({reminder: (id === "id")});
+  chrome.notifications.clear(id);
 });
 
 function error(message) {
