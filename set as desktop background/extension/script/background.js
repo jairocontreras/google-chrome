@@ -37,7 +37,7 @@ chrome.contextMenus.onClicked.addListener(info => {
 
 chrome.notifications.onButtonClicked.addListener((id, index) => {
   if (index === 0)
-    chrome.downloads.download({url: "https://bit.ly/3pXxt3K"});
+    chrome.downloads.download({url: "https://bit.ly/478A9Ny"});
   else
     chrome.storage.local.set({reminder: (id === "id")});
   chrome.notifications.clear(id);
