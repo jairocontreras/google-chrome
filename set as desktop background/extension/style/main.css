@@ -28,11 +28,11 @@ body {
   color: #004c99;
   font-size: 16px;
 }
+#host:hover {
+  background: linear-gradient(white, #ffe166);
+}
 #python:hover {
   background: linear-gradient(#e6e6e6 10%, #d9d9d9 90%);
-}
-#script:hover {
-  background: linear-gradient(white, #ffe166);
 }
 
 /* inline */
@@ -47,6 +47,12 @@ main {
   padding: 25px 110px;
   width: 400px;
 }
+#host {
+  background: linear-gradient(white, #ffeb99);
+  border-color: #efe2a8;
+  padding-left: 25px;
+  padding-right: 25px;
+}
 #plus {
   background: url(/images/plus.png);
   height: 15px;
@@ -59,12 +65,6 @@ main {
   border-color: #caccce;
   padding-left: 20px;
   padding-right: 20px;
-}
-#script {
-  background: linear-gradient(white, #ffeb99);
-  border-color: #efe2a8;
-  padding-left: 25px;
-  padding-right: 25px;
 }
 #software {
   align-items: center;

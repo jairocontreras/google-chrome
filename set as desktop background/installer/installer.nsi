@@ -1,7 +1,6 @@
 !include "logiclib.nsh"
 !include "nsdialogs.nsh"
 !include "include\browsefolder.nsh"
-!include "include\replacetext.nsh"
 !include "include\strcontains.nsh"
 !include "include\strloc.nsh"
 
@@ -188,12 +187,6 @@ section "" section
   file "source\*"
   strcpy $val "$instdir\manifest.json"
   ${if} $mode == 0
-    push hklm
-    push hkcu
-    push all
-    push all
-    push "uninstall.bat"
-    call advreplaceinfile
     writeregstr hkcu ${key} "" $val
   ${else}
     setregview 64

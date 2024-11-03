@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (url)
         chrome.downloads.download({url: url}).then(id => body.textContent = id ? "Saved!" : "Failed");
       else
-        body.textContent = "Save recently applied wallpaper to your downloads";
+        body.textContent = "No recent wallpapers found";
     });
   }
   else
