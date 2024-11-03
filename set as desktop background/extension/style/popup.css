@@ -2,3 +2,14 @@ body {
   font-size: 14px;
   white-space: pre;
 }
+span {
+  font-style: italic;
+  margin-left: 4px;
+}
+.url {
+  color: #008fd6;
+  cursor: pointer;
+}
+.url:hover {
+  text-decoration: underline;
+}

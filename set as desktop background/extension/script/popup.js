@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const body = document.querySelector("body");
-  if (window.navigator.onLine) {
-    chrome.storage.local.get(["url"]).then(result => {
-      const url = result["url"];
-      if (url)
-        chrome.downloads.download({url: url}).then(id => body.textContent = id ? "Saved!" : "Failed");
-      else
-        body.textContent = "No recent wallpapers found";
-    });
-  }
-  else
-    body.textContent = "No internet connection";
+  const span = document.querySelector("span");
+  var url;
+  chrome.storage.local.get(["url"]).then(result => {
+    url = result["url"];
+    if (url) {
+      const n = url.lastIndexOf("/");
+      span.textContent = url.substring(n+1);
+      span.classList.add("url");
+    }
+    else
+      span.textContent = "None";
+  });
+  span.addEventListener("click", () => {
+    if (span.classList.contains("url"))
+      chrome.downloads.download({url: url});
+  });
 });
