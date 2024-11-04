@@ -44,7 +44,7 @@ body {
 .installed:hover {
   background: linear-gradient(white, #ffe166);
 }
-.sub {
+.section {
   color: #004c99;
   font-size: 16px;
 }
@@ -61,6 +61,16 @@ main {
   padding: 25px 110px;
   width: 400px;
 }
+#components {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#heading {
+  color: #1c1a16;
+  font-size: 24px;
+  margin-block-start: 0;
+}
 #host {
   padding-left: 25px;
   padding-right: 25px;
@@ -75,14 +85,4 @@ main {
 #python {
   padding-left: 20px;
   padding-right: 20px;
-}
-#software {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-#title {
-  color: #1c1a16;
-  font-size: 24px;
-  margin-block-start: 0;
 }

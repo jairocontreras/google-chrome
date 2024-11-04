@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   chrome.storage.local.get(["url"]).then(result => {
     url = result["url"];
     if (url) {
-      const n = url.lastIndexOf("/");
-      span.textContent = url.substring(n+1);
+      const n = url.lastIndexOf("/"),
+            filename = url.substring(n+1).split("?")[0];
+      span.textContent = filename;
       span.classList.add("url");
+      if (filename.length > 101)
+        span.classList.add("long");
     }
     else
       span.textContent = "None";

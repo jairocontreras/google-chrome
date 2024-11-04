@@ -7,6 +7,7 @@
 !define app "Set as desktop background"
 !define key "software\google\chrome\nativemessaginghosts\set_as_desktop_background"
 
+outfile "Host.exe"
 installdir "$programfiles\${app}"
 xpstyle on
 caption $app

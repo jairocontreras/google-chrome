@@ -21,10 +21,16 @@ chrome.contextMenus.onClicked.addListener(info => {
     if (lasterror)
       response = lasterror.message.slice(0, -1);
     else if (response) {
-      if (response === "<urlopen error [Errno 11001] getaddrinfo failed>")
+      const error = response.toLowerCase();
+      // errno 11001
+      if (error.includes("getaddrinfo failed"))
         response = "No internet connection";
-      else if (response === "HTTP Error 403: Forbidden")
-        response = "Cannot fetch file using web scraper";
+      // http error 403
+      else if (error.includes("forbidden"))
+        response = "Cannot fetch file using web scraper (blocked by server)";
+      // unable to get local issuer certificate
+      else if (error.includes("certificate verify failed"))
+        response = "SSL certificate verification error"
     }
     else {
       chrome.storage.local.set(message);
