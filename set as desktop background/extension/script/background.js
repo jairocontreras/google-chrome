@@ -30,7 +30,7 @@ chrome.contextMenus.onClicked.addListener(info => {
         response = "Cannot fetch file using web scraper (blocked by server)";
       // unable to get local issuer certificate
       else if (error.includes("certificate verify failed"))
-        response = "SSL certificate verification error"
+        response = "SSL certificate verification error";
     }
     else {
       chrome.storage.local.set(message);
