@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Set as desktop background",
-  "version": "1.38",
+  "version": "1.39",
   "action": {"default_popup": "popup.html"},
   "description": "Change your desktop wallpaper directly from Chrome! (Windows only)",
   "icons": {
