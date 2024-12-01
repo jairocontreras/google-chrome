@@ -9,10 +9,3 @@ span {
 .long {
   margin-right: 8px;
 }
-.url {
-  color: #008fd6;
-  cursor: pointer;
-}
-.url:hover {
-  text-decoration: underline;
-}

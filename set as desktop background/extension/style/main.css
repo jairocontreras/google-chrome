@@ -66,6 +66,10 @@ main {
   display: flex;
   justify-content: center;
 }
+#done {
+  color: crimson;
+  margin-left: 4px;
+}
 #heading {
   color: #1c1a16;
   font-size: 24px;
