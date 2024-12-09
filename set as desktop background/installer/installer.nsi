@@ -182,7 +182,7 @@ function leave
   ${nsd_gettext} $dest $instdir
 functionend
 
-section "" section
+section "" id
   var /global val
   setoutpath $instdir
   file "source\*"
@@ -198,5 +198,5 @@ sectionend
 function .oninit
   var /global app
   strcpy $app "${app}"
-  sectiongetsize ${section} $size_src ; function must be placed after section
+  sectiongetsize ${id} $size_src ; function must be placed after section
 functionend
