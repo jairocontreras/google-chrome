@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Set as desktop background",
-  "version": "1.40",
+  "version": "1.0.0",
   "action": {"default_popup": "popup.html"},
-  "description": "Choose any image on the web as your desktop wallpaper (Windows only)",
+  "description": "Change your desktop wallpaper directly from Chrome! Choose your favorite picture from the internet (Windows only)",
   "icons": {
     "16": "images/16.png",
     "48": "images/48.png",

@@ -3,5 +3,5 @@
   "description": "description",
   "path": "host.py",
   "type": "stdio",
-  "allowed_origins": ["chrome-extension://kpnohlcoegedfpikkadcoljdjnijbelp/"]
+  "allowed_origins": ["chrome-extension://ahjolplmedimlgpeaffljihapebdcmop/"]
 }
