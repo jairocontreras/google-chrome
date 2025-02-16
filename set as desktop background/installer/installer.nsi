@@ -5,10 +5,10 @@
 !include "include\strloc.nsh"
 
 !define app "Set as desktop background"
+!define wallpaper "$appdata\${app}"
 !define key "software\google\chrome\nativemessaginghosts\set_as_desktop_background"
 
 outfile "Host.exe"
-installdir "$programfiles\${app}"
 xpstyle on
 caption $app
 subcaption 4 " "
@@ -56,7 +56,7 @@ function setup
   ${nsd_onclick} $all mode
   ${nsd_onchange} $dest validate
   ${nsd_onclick} $link open
-  ${nsd_settext} $dest $instdir
+  ${nsd_settext} $dest "$programfiles\${app}"
   nsdialogs::show
 functionend
 
@@ -88,10 +88,11 @@ functionend
 function mode
   ${nsd_getstate} $all $mode
   ${if} $mode == 0
-    ${nsd_settext} $dest "$appdata\${app}"
+    strcpy $0 $appdata
   ${else}
-    ${nsd_settext} $dest "$programfiles\${app}"
+    strcpy $0 $programfiles
   ${endif}
+  ${nsd_settext} $dest "$0\${app}"
 functionend
 
 function validate
@@ -184,6 +185,9 @@ functionend
 
 section "" id
   var /global val
+  ${ifnot} $instdir == "${wallpaper}"
+    createdirectory "${wallpaper}"
+  ${endif}
   setoutpath $instdir
   file "source\*"
   strcpy $val "$instdir\manifest.json"
